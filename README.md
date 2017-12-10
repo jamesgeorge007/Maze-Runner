@@ -3,9 +3,9 @@ This is basically an interactive maze runner game built using the Pygame module 
 
 Check out the screenshots:
 
-Main Menu: https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/tree/master/Maze%20Runner%20Game/resources/Screenshots/mainMenu.png
+Main Menu: https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/menu.png
 
-Game Play: https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/tree/master/Maze%20Runner%20Game/resources/Screenshots/gamePlay.png
+Game Play: https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameplay.PNG
 
 
-Game Over: https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/tree/master/Maze%20Runner%20Game/resources/Screenshots/gameOver.png
+Game Over: https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameover.PNG
