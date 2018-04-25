@@ -17,20 +17,20 @@ This is basically an interactive maze runner game built using the Pygame module 
 ## Check out the screenshots: 
 
 ## Main Menu  
-[! alt text](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/menu.PNG)
+![Main Menu](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/menu.PNG)
 
 ## Game Play 
-<img src="https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameplay.PNG">
+![Game Play](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameplay.PNG)
 
 
 ## Game Over 
-<img src="https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameover.PNG">
+![Game Over](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameover.PNG)
 
 # pygame
 
 
 
-About pygame
+## About pygame
 ============
 
      Pygame is a cross-platfrom library designed to make it easy to
