@@ -14,16 +14,13 @@ This is basically an interactive maze runner game built using the Pygame module 
   * You can find the main source file within the src directory. Run the code and you have the game 
   * Contributions are always welcomed. 
 
-## Check out the screenshots: 
-
-## Main Menu  
+## Screenshots 
+ 
 ![Main Menu](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/menu.PNG)
 
-## Game Play 
 ![Game Play](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameplay.PNG)
 
 
-## Game Over 
 ![Game Over](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameover.PNG)
 
 
