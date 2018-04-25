@@ -1,4 +1,4 @@
-# Maze-Runner
+<h1 align="center"> Maze-Runner </h1>
 
 ## Basic Info 
 
