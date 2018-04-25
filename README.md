@@ -7,12 +7,12 @@ This is basically an interactive maze runner game built using the Pygame module 
 
 ## Instructions 
 
-  * Ensure that you have Python installed on your system and the path is properly configured. </li>
-  * Install the Git client. </li> 
+  * Ensure that you have Python (I prefer versions 3.5+) installed on your system and the path is properly configured. 
+  * Install the Git client.
   * Clone this repository to your local machine. i,e ` ` ` git clone https://github.com/jamesgeorge007/Maze-Runner ` ` ` 
-  * Install pygame via the pip package manager => Open command prompt and type in py -m pip install pygame. 
+  * Install pygame via the pip package manager ` ` ` pip install pygame ` ` `. 
   * You can find the main source file within the src directory. Run the code and you have the game 
-  * Fork this repository and suggest me your ideas in the form of a pull request and also don't forget to star my repositories. 
+  * Contributions are always welcomed. 
 
 ## Check out the screenshots: 
 
