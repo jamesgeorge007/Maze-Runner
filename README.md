@@ -26,8 +26,6 @@ This is basically an interactive maze runner game built using the Pygame module 
 ## Game Over 
 ![Game Over](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameover.PNG)
 
-# pygame
-
 
 
 ## About pygame
