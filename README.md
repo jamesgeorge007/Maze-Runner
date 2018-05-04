@@ -1,3 +1,5 @@
+[![GitHub issues](https://img.shields.io/github/issues/jamesgeorge007/Maze-Runner.svg)](https://github.com/jamesgeorge007/Maze-Runner/issues)  [![GitHub forks](https://img.shields.io/github/forks/jamesgeorge007/Maze-Runner.svg)](https://github.com/jamesgeorge007/Maze-Runner/network)  [![GitHub stars](https://img.shields.io/github/stars/jamesgeorge007/Maze-Runner.svg)](https://github.com/jamesgeorge007/Maze-Runner/stargazers)  [![GitHub license](https://img.shields.io/github/license/jamesgeorge007/Maze-Runner.svg)](https://github.com/jamesgeorge007/Maze-Runner/blob/master/LICENSE)
+
 <h1 align="center"> Maze-Runner </h1>
 
 ## Basic Info 
