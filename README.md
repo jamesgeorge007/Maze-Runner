@@ -24,12 +24,12 @@ This is basically an interactive maze runner game built using the Pygame module 
 
 ## Screenshots 
  
-![Main Menu](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/menu.PNG)
+![Main Menu](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/assets/Screenshots/menu.PNG)
 
-![Game Play](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameplay.PNG)
+![Game Play](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/assets/Screenshots/gameplay.PNG)
 
 
-![Game Over](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/resources/Screenshots/gameover.PNG)
+![Game Over](https://github.com/jamesgeorge007/Maze-Runner-Game-in-Python-Using-the-Pygame-module-/blob/master/Maze%20Runner%20Game/assets/Screenshots/gameover.PNG)
 
 
 
