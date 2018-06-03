@@ -4,7 +4,9 @@
 
 ## Basic Info 
 
-This is basically an interactive maze runner game built using the Pygame module available in the python programming language which is an open source library used to build 2-D games. What I tried is to clone the T-Rex game available offline in the Google Chrome web browser.
+This is basically an interactive maze runner game built using the Pygame module available in the python programming language which is an open source library used to build 2-D games. What I tried is to clone the T-Rex game available offline in the Google Chrome web browser. 
+
+> Made for the Windows platform.
 
 
 ## Instructions 
@@ -15,6 +17,10 @@ This is basically an interactive maze runner game built using the Pygame module 
   * Install pygame via the pip package manager ` ` ` pip install pygame ` ` `. 
   * You can find the main source file within the src directory. Run the code and you have the game 
   * Contributions are always welcomed. 
+
+## License 
+
+   **The MIT License**
 
 ## Screenshots 
  
