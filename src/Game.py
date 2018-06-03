@@ -31,19 +31,19 @@ gameExit=False
 
 #Tree obstacles
 
-images=['../resources/images/tree1.jpeg','../resources/images/tree2.jpeg','../resources/images/tree3.jpeg','../resources/images/shrub1.jpeg','../resources/images/shrub2.jpeg']
+images=['../assets/Images/tree1.jpeg','../assets/Images/tree2.jpeg','../assets/Images/tree3.jpeg','../assets/Images/shrub1.jpeg','../assets/Images/shrub2.jpeg']
 
 #Cloud images
 
-clouds=['../resources/images/cloud_1.jpg','../resources/images/cloud_2.png','../resources/images/cloud_3.jpg']
+clouds=['../assets/Images/cloud_1.jpg','../assets/Images/cloud_2.png','../assets/Images/cloud_3.jpg']
 
 #Bird images
 
-birds=['../resources/images/bird1.jpg','../resources/images/bird2.jpg']
+birds=['../assets/Images/bird1.jpg','../assets/Images/bird2.jpg']
 
-Img1= pygame.image.load('../resources/images/sonic_run.jpg')
+Img1= pygame.image.load('../assets/Images/sonic_run.jpg')
 
-Img2=pygame.image.load('../resources/images/sonic_still.jpg')
+Img2=pygame.image.load('../assets/Images/sonic_still.jpg')
 
 #Displaying score on the top-left corner
 
@@ -179,7 +179,7 @@ user_click=False
 
 
 
-pygame.mixer.music.load('../resources/music/intro.mp3')
+pygame.mixer.music.load('../assets/music/intro.mp3')
 pygame.mixer.music.play(-1)
 
 
@@ -214,7 +214,7 @@ while not user_click:
              #gameDisplay.fill((i,j,k))
 
               
-             maze_img=pygame.image.load('../resources/images/maze.jpeg')
+             maze_img=pygame.image.load('../assets/Images/maze.jpeg')
              gameDisplay.blit(maze_img,(0,0))  
 
 
@@ -296,7 +296,7 @@ index=0
 
 #move_down=False
 
-pygame.mixer.music.load("../resources/music/gamePlay.mp3")
+pygame.mixer.music.load("../assets/music/gamePlay.mp3")
 pygame.mixer.music.play(-1,4.0)
 
 key_up=False
@@ -334,7 +334,7 @@ while not gameExit:
  
                 if not key_space:
                     y-=80
-                    pygame.mixer.music.load('../resources/music/jump.wav')
+                    pygame.mixer.music.load('../assets/music/jump.wav')
                     pygame.mixer.music.play(1)
 
           if event.key==pygame.K_SPACE:
@@ -343,7 +343,7 @@ while not gameExit:
  
                 if not key_up:
                     y-=80
-                    pygame.mixer.music.load('../resources/music/jump.wav')
+                    pygame.mixer.music.load('../assets/music/jump.wav')
                     pygame.mixer.music.play(1)   
 
 
@@ -414,7 +414,7 @@ while not gameExit:
 
     #Mighty sun!
 
-    sun_img=pygame.image.load('../resources/Images/sun_normal.png')
+    sun_img=pygame.image.load('../assets/Images/sun_normal.png')
 
     gameDisplay.blit(sun_img,(660,100))
 
@@ -452,7 +452,7 @@ while not gameExit:
         #Checking whether sonic and the obstacle has the same y co-ordinate (Crashed!!!)
         
         if start_y==y:
-           pygame.mixer.music.load('../resources/music/crash.wav')
+           pygame.mixer.music.load('../assets/music/crash.wav')
            pygame.mixer.music.play(-1)
            message_display("GAME OVER")
            display("Your score is "+str(score))
@@ -464,7 +464,7 @@ while not gameExit:
         #Checking whether sonic and the bird has the same Y co-ordinate
 
          if bird_y-4==y:
-           pygame.mixer.music.load('../resources/music/crash.wav')
+           pygame.mixer.music.load('../assets/music/crash.wav')
            pygame.mixer.music.play(1)   
            message_display("GAME OVER")
            display("Your score is "+str(score))
@@ -518,7 +518,7 @@ while not gameExit:
 
         key_space=False
             
-        pygame.mixer.music.load('../resources/music/gamePlay.mp3')
+        pygame.mixer.music.load('../assets/music/gamePlay.mp3')
         pygame.mixer.music.play(-1,i)
 
     #Checking whether the cloud crossed the leftmost point        
