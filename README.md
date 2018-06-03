@@ -20,7 +20,7 @@ This is basically an interactive maze runner game built using the Pygame module 
 
 ## License 
 
-   **The MIT License**
+>   **The MIT License**
 
 ## Screenshots 
  
