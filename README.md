@@ -17,6 +17,11 @@ This is basically an interactive maze runner game built using the Pygame module 
   * Install pygame via the pip package manager ` ` ` pip install pygame ` ` `. 
   * You can find the main source file within the src directory. Run the code and you have the game 
   * Contributions are always welcomed. 
+  
+## Stargazers over time
+
+[![Stargazers over time](https://starcharts.herokuapp.com/jamesgeorge007/Maze-Runner.svg)](https://starcharts.herokuapp.com/jamesgeorge007/Maze-Runner)  
+  
 
 ## License 
 
