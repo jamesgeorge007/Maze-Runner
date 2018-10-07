@@ -21,20 +21,21 @@ This is basically an interactive maze runner game built using the Pygame module 
 ## Stargazers over time
 
 [![Stargazers over time](https://starcharts.herokuapp.com/jamesgeorge007/Maze-Runner.svg)](https://starcharts.herokuapp.com/jamesgeorge007/Maze-Runner)  
-  
 
-## License 
+## Demo 
 
->   **The MIT License**
+![Game Play](https://raw.githubusercontent.com/gahan9/Maze-Runner/master/assets/Images/demo/gameplay.gif)
 
 ## Screenshots 
  
 ![Main Menu](https://github.com/jamesgeorge007/Maze-Runner/blob/master/assets/Screenshots/menu.PNG)
 
-![Game Play](https://raw.githubusercontent.com/gahan9/Maze-Runner/master/assets/Images/demo/gameplay.gif)
-
 ![Game Over](https://github.com/jamesgeorge007/Maze-Runner/blob/master/assets/Screenshots/gameover.PNG)
 
+
+## License 
+
+>   **The MIT License**
 
 
 
