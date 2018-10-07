@@ -25,163 +25,152 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 '''
 
-
 import pygame
 import random
 import time
 import sys
 from tkinter import messagebox
+import os
 
+# Initialized resource path for cross platform compatibility
+BASE_DIR = os.path.dirname(__file__)
+RESOURCE_PATH = os.path.join(BASE_DIR, '..', 'assets')
+IMAGE_PATH = os.path.join(RESOURCE_PATH, 'Images')
+MUSIC_PATH = os.path.join(RESOURCE_PATH, 'music')
 
 pygame.init()
 
-
-    
 display_width = 800
 display_height = 600
 
-gameDisplay = pygame.display.set_mode((display_width,display_height))
+gameDisplay = pygame.display.set_mode((display_width, display_height))
 pygame.display.set_caption('Maze Runner')
 
-black = (0,0,0)
-white = (255,255,255)
+black = (0, 0, 0)
+white = (255, 255, 255)
 
 clock = pygame.time.Clock()
-gameExit=False
+gameExit = False
+
+# Images
 
 
-#Images
+# Tree obstacles
+
+images = [os.path.join(IMAGE_PATH, 'tree1.jpeg'), os.path.join(IMAGE_PATH, 'tree2.jpeg'), os.path.join(IMAGE_PATH, 'tree3.jpeg'), os.path.join(IMAGE_PATH, 'shrub1.jpeg'), os.path.join(IMAGE_PATH, 'shrub2.jpeg')]
+
+# Cloud images
+
+clouds = [os.path.join(IMAGE_PATH, 'cloud_1.jpg'), os.path.join(IMAGE_PATH, 'cloud_2.png'), os.path.join(IMAGE_PATH, 'cloud_3.jpg')]
+
+# Bird images
+
+birds = [os.path.join(IMAGE_PATH, 'bird1.jpg'), os.path.join(IMAGE_PATH, 'bird2.jpg')]
+
+Img1 = pygame.image.load(os.path.join(IMAGE_PATH, 'sonic_run.jpg'))
+
+Img2 = pygame.image.load(os.path.join(IMAGE_PATH, 'sonic_still.jpg'))
 
 
-#Tree obstacles
+# Displaying score on the top-left corner
 
-images=['../assets/Images/tree1.jpeg','../assets/Images/tree2.jpeg','../assets/Images/tree3.jpeg','../assets/Images/shrub1.jpeg','../assets/Images/shrub2.jpeg']
+def your_score(string, count=0, size=0):
+    font = pygame.font.SysFont(None, size)
+    text = font.render(string + str(count), True, (200, 25, 0))
+    gameDisplay.blit(text, (0, 0))
 
-#Cloud images
 
-clouds=['../assets/Images/cloud_1.jpg','../assets/Images/cloud_2.png','../assets/Images/cloud_3.jpg']
+def img1(x, y):
+    gameDisplay.blit(Img1, (x, y))
 
-#Bird images
 
-birds=['../assets/Images/bird1.jpg','../assets/Images/bird2.jpg']
+def img2(x, y):
+    gameDisplay.blit(Img2, (x, y))
 
-Img1= pygame.image.load('../assets/Images/sonic_run.jpg')
 
-Img2=pygame.image.load('../assets/Images/sonic_still.jpg')
-
-#Displaying score on the top-left corner
-
-def your_score(string,count=0,size=0):
-    font = pygame.font.SysFont(None,size)
-    text = font.render(string+str(count), True, (200,25,0))
-    gameDisplay.blit(text,(0,0))
-
-def img1(x,y):
-    gameDisplay.blit(Img1, (x,y))
-
-def img2(x,y):
-    gameDisplay.blit(Img2, (x,y))
-
-x =  (display_width * 0.050)
+x = (display_width * 0.050)
 y = (display_height * 0.66)
 
+start_x = 720
+start_y = 396
+height = 80
+
+red = 90
+green = 185
+blue = 125
 
 
-
-
-
-start_x=720
-start_y=396
-height=80
-
-
-
-red=90
-green=185
-blue=125
-
-
-
-
-
-#Main Menu
+# Main Menu
 
 def title_objects(text, font):
-    textSurface = font.render(text, True, (255,255,255))
+    textSurface = font.render(text, True, (255, 255, 255))
     return textSurface, textSurface.get_rect()
 
+
 def title(text):
-    largeText = pygame.font.Font('freesansbold.ttf',75)
+    largeText = pygame.font.Font('freesansbold.ttf', 75)
     TextSurf, TextRect = title_objects(text, largeText)
-    TextRect.center = ((display_width/2),(display_height/2-210))
+    TextRect.center = ((display_width / 2), (display_height / 2 - 210))
     gameDisplay.blit(TextSurf, TextRect)
 
     pygame.display.update()
-
-
 
 
 def play_now_objects(text, font):
-    textSurface = font.render(text, True, (255,255,255))
+    textSurface = font.render(text, True, (255, 255, 255))
     return textSurface, textSurface.get_rect()
 
+
 def play_now(text):
-    largeText = pygame.font.Font('freesansbold.ttf',40)
+    largeText = pygame.font.Font('freesansbold.ttf', 40)
     TextSurf, TextRect = play_now_objects(text, largeText)
-    TextRect.center = (display_width/2+10,display_height/2-40)
+    TextRect.center = (display_width / 2 + 10, display_height / 2 - 40)
     gameDisplay.blit(TextSurf, TextRect)
 
     pygame.display.update()
 
 
-
-
-
 def quit_text_objects(text, font):
-    textSurface = font.render(text, True, (255,255,255))
+    textSurface = font.render(text, True, (255, 255, 255))
     return textSurface, textSurface.get_rect()
 
+
 def quit_text(text):
-    largeText = pygame.font.Font('freesansbold.ttf',45)
+    largeText = pygame.font.Font('freesansbold.ttf', 45)
     TextSurf, TextRect = quit_text_objects(text, largeText)
-    TextRect.center = (display_width/2,display_height/2+100)
+    TextRect.center = (display_width / 2, display_height / 2 + 100)
     gameDisplay.blit(TextSurf, TextRect)
 
-    pygame.display.update()    
+    pygame.display.update()
 
 
-#Crashed Message Displaying Methods
+# Crashed Message Displaying Methods
 
 def text_objects(text, font):
     textSurface = font.render(text, True, black)
     return textSurface, textSurface.get_rect()
 
+
 def message_display(text):
-    largeText = pygame.font.Font('freesansbold.ttf',65)
+    largeText = pygame.font.Font('freesansbold.ttf', 65)
     TextSurf, TextRect = text_objects(text, largeText)
-    TextRect.center = ((display_width/2),(display_height/2))
+    TextRect.center = ((display_width / 2), (display_height / 2))
     gameDisplay.blit(TextSurf, TextRect)
 
     pygame.display.update()
 
-    
 
-    
-
-
-
-
-
-#Displaying the score
+# Displaying the score
 
 def text_render(text, font):
-    textSurface = font.render(text, True, (255,0,0))
+    textSurface = font.render(text, True, (255, 0, 0))
     return textSurface, textSurface.get_rect()
 
+
 def display(text):
-    largeText = pygame.font.Font('freesansbold.ttf',45)
+    largeText = pygame.font.Font('freesansbold.ttf', 45)
     TextSurf, TextRect = text_render(text, largeText)
-    TextRect.center = ((display_width/2),(30))
+    TextRect.center = ((display_width / 2), (30))
     gameDisplay.blit(TextSurf, TextRect)
 
     pygame.display.update()
@@ -189,335 +178,277 @@ def display(text):
     time.sleep(3)
 
 
-    
+score = 0
+speed = 3.5
 
+user_click = False
 
-score=0
-speed=3.5
-
-user_click=False
-
-
-
-
-
-
-
-pygame.mixer.music.load('../assets/music/intro.mp3')
+pygame.mixer.music.load(os.path.join(MUSIC_PATH, 'intro.mp3'))
 pygame.mixer.music.play(-1)
 
+i = 0
+j = 8
+k = 14
 
-i=0
-j=8
-k=14
+index = 0
 
-index=0
-
-#Main Menu
+# Main Menu
 
 while not user_click:
 
+    for event in pygame.event.get():
 
-         
-         for event in pygame.event.get():
+        if i >= 255:
+            i = 0
 
-             
+        if j >= 255:
+            j = 2
 
-             
-             if i>=255:
-                i=0
+        if k >= 255:
+            k = 3
 
-             if j>=255:
-                j=2
+            # gameDisplay.fill((i,j,k))
 
-             if k>=255:
-                k=3 
+        maze_img = pygame.image.load(os.path.join(IMAGE_PATH, 'maze.jpeg'))
+        gameDisplay.blit(maze_img, (0, 0))
 
+        title("Maze Runner Game!")
 
-          
-             #gameDisplay.fill((i,j,k))
+        # Getting the mouse co-ordinates
 
-              
-             maze_img=pygame.image.load('../assets/Images/maze.jpeg')
-             gameDisplay.blit(maze_img,(0,0))  
+        mouse = pygame.mouse.get_pos()
 
+        # Play Now button
 
-             title("Maze Runner Game!")
-             
-             #Getting the mouse co-ordinates
+        if display_width / 2 - 100 + 220 > mouse[0] > display_width / 2 - 100 and display_height / 2 - 80 + 70 > mouse[1] > display_height / 2 - 80:
 
-             mouse = pygame.mouse.get_pos()
+            pygame.draw.rect(gameDisplay, (235, 25, 15), (display_width / 2 - 100, display_height / 2 - 80, 220, 70))
+            play_now("Play Now")
 
-             #Play Now button
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                user_click = True
+        else:
+            pygame.draw.rect(gameDisplay, (0, 200, 0), (display_width / 2 - 100, display_height / 2 - 80, 220, 70))
+            play_now("Play Now")
 
-             if display_width/2-100+220 > mouse[0] > display_width/2-100 and display_height/2-80+70 > mouse[1] > display_height/2-80:
-                 
-                pygame.draw.rect(gameDisplay, (235,25,15),(display_width/2-100,display_height/2-80,220,70))
-                play_now("Play Now")
+        # Quit button
 
-                if event.type==pygame.MOUSEBUTTONDOWN:
+        if display_width / 2 - 100 + 220 > mouse[0] > display_width / 2 - 100 and display_height / 2 + 60 + 70 > mouse[1] > display_height / 2 + 60:
 
-                    user_click=True
-             else:
-                pygame.draw.rect(gameDisplay, (0,200,0), (display_width/2-100,display_height/2-80,220,70))
-                play_now("Play Now")
- 
+            pygame.draw.rect(gameDisplay, (0, 200, 0), (display_width / 2 - 100, display_height / 2 + 60, 220, 70))
+            quit_text("Quit")
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pygame.quit()
+                sys.exit()
 
-             
-             #Quit button
-             
-             if display_width/2-100+220 > mouse[0] > display_width/2-100 and display_height/2+60+70 > mouse[1] > display_height/2+60:
-                
-                pygame.draw.rect(gameDisplay, (0,200,0), (display_width/2-100,display_height/2+60,220,70))
-                quit_text("Quit")
-                if event.type==pygame.MOUSEBUTTONDOWN:
-                    pygame.quit()
-                    sys.exit()
+        else:
 
-             else:
+            pygame.draw.rect(gameDisplay, (235, 25, 15), (display_width / 2 - 100, display_height / 2 + 60, 220, 70))
+            quit_text("Quit")
 
-                pygame.draw.rect(gameDisplay, (235,25,15), (display_width/2-100,display_height/2+60,220,70))
-                quit_text("Quit")
+        i += 2
 
-             
-             i+=2
+        j += 14
 
-             j+=14
-
-             k+=20   
+        k += 20
 pygame.mixer.music.stop()
-            
-                     
 
+random_tree = random.randint(0, 4)
 
-random_tree=random.randint(0,4)
+tree_obstacles = pygame.image.load(images[random_tree])
 
-tree_obstacles=pygame.image.load(images[random_tree])
+if random_tree == 3:
+    gameDisplay.blit(tree_obstacles, (start_x, start_y + 52))
 
-if random_tree==3:
-   gameDisplay.blit(tree_obstacles,(start_x,start_y+52))
+elif random_tree == 4:
+    gameDisplay.blit(tree_obstacles, (start_x, start_y + 20))
 
-elif random_tree==4:
-     gameDisplay.blit(tree_obstacles,(start_x,start_y+20))
-   
-else:               
-     gameDisplay.blit(tree_obstacles,(start_x,start_y))
+else:
+    gameDisplay.blit(tree_obstacles, (start_x, start_y))
 
-#Bird coordinates
+# Bird coordinates
 
-bird_x=920
-bird_y=320
+bird_x = 920
+bird_y = 320
 
-random_cloud=random.randint(0,2)
+random_cloud = random.randint(0, 2)
 
-#Cloud initial coordinates
+# Cloud initial coordinates
 
-cloud_x=880
-cloud_y=200
+cloud_x = 880
+cloud_y = 200
 
-#Setting initial value of the bird list index to zero!
-index=0
+# Setting initial value of the bird list index to zero!
+index = 0
 
-#move_down=False
+# move_down=False
 
-pygame.mixer.music.load("../assets/music/gamePlay.mp3")
-pygame.mixer.music.play(-1,4.0)
+pygame.mixer.music.load(os.path.join(MUSIC_PATH, "gamePlay.mp3"))
+pygame.mixer.music.play(-1, 4.0)
 
-key_up=False
+key_up = False
 
-key_space=False
+key_space = False
 
 while not gameExit:
 
-       
+    bird_img = pygame.image.load(birds[index])
 
-    bird_img=pygame.image.load(birds[index])
-
-    if index==0:
-        index=1
+    if index == 0:
+        index = 1
     else:
-        index =0
-    
-    
+        index = 0
+
     for event in pygame.event.get():
-        
 
-        
-        i+=1
+        i += 1
 
-        
-    
         if event.type == pygame.QUIT:
-            gameExit=True
+            gameExit = True
 
-        if event.type==pygame.KEYDOWN:
+        if event.type == pygame.KEYDOWN:
 
-          if event.key==pygame.K_UP:  
+            if event.key == pygame.K_UP:
 
-                key_up=True
- 
+                key_up = True
+
                 if not key_space:
-                    y-=80
-                    pygame.mixer.music.load('../assets/music/jump.wav')
+                    y -= 80
+                    pygame.mixer.music.load(os.path.join(MUSIC_PATH, 'jump.wav'))
                     pygame.mixer.music.play(1)
 
-          if event.key==pygame.K_SPACE:
+            if event.key == pygame.K_SPACE:
 
-                key_space=True
- 
+                key_space = True
+
                 if not key_up:
-                    y-=80
-                    pygame.mixer.music.load('../assets/music/jump.wav')
-                    pygame.mixer.music.play(1)   
+                    y -= 80
+                    pygame.mixer.music.load(os.path.join(MUSIC_PATH, 'jump.wav'))
+                    pygame.mixer.music.play(1)
 
-
-        
-                
-              
-                    
-        
-        if event.type==pygame.KEYUP:
-            if event.key==pygame.K_UP or event.key==pygame.K_SPACE:
-               key_up=False
-               key_space=False
-               y=display_height*0.66
-       
-       
-               
-      
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_UP or event.key == pygame.K_SPACE:
+                key_up = False
+                key_space = False
+                y = display_height * 0.66
 
         '''if move_down:
            
            pygame.time.delay(300)
            y=display_height*0.66'''
-             
-           
-
-
-
-    
 
     gameDisplay.fill(white)
-    score+=1
-    #Rectangular blocks instead
-    #pygame.draw.rect(gameDisplay, (red,green,blue), [start_x,start_y,80,height])
+    score += 1
+    # Rectangular blocks instead
+    # pygame.draw.rect(gameDisplay, (red,green,blue), [start_x,start_y,80,height])
 
-    #Displaying the tree obstacles randomly
-    
+    # Displaying the tree obstacles randomly
 
-        
-    if random_tree==3:
-           gameDisplay.blit(tree_obstacles,(start_x,start_y+52))
+    if random_tree == 3:
+        gameDisplay.blit(tree_obstacles, (start_x, start_y + 52))
 
-    elif random_tree==4:
-             gameDisplay.blit(tree_obstacles,(start_x,start_y+20))
+    elif random_tree == 4:
+        gameDisplay.blit(tree_obstacles, (start_x, start_y + 20))
 
-    else:               
-             gameDisplay.blit(tree_obstacles,(start_x,start_y)) 
-    
-    start_x-=speed
-
-    #Horizontal line
-
-    pygame.draw.line(gameDisplay, (0, 0, 0), (0, 480), (800,480))
-
-    if i%2==0:
-           img1(x,y)
     else:
-           img2(x,y)
-    
+        gameDisplay.blit(tree_obstacles, (start_x, start_y))
 
+    start_x -= speed
 
-    #Green colour beneath the horizontal line       
+    # Horizontal line
 
-    pygame.draw.rect(gameDisplay,[0,255,0],[0,481,800,200])
+    pygame.draw.line(gameDisplay, (0, 0, 0), (0, 480), (800, 480))
 
-    #Blue-ish tone!
+    if i % 2 == 0:
+        img1(x, y)
+    else:
+        img2(x, y)
 
-    pygame.draw.rect(gameDisplay,[25,95,235],[0,0,800,80])
+    # Green colour beneath the horizontal line
 
-    #Mighty sun!
+    pygame.draw.rect(gameDisplay, [0, 255, 0], [0, 481, 800, 200])
 
-    sun_img=pygame.image.load('../assets/Images/sun_normal.png')
+    # Blue-ish tone!
 
-    gameDisplay.blit(sun_img,(660,100))
+    pygame.draw.rect(gameDisplay, [25, 95, 235], [0, 0, 800, 80])
 
-    #Generating clouds randomly
+    # Mighty sun!
 
+    sun_img = pygame.image.load(os.path.join(IMAGE_PATH, 'sun_normal.png'))
 
-    cloud_img=pygame.image.load(clouds[random_cloud])
+    gameDisplay.blit(sun_img, (660, 100))
 
-    gameDisplay.blit(cloud_img,(cloud_x,cloud_y))
+    # Generating clouds randomly
 
-    cloud_x-=1
+    cloud_img = pygame.image.load(clouds[random_cloud])
 
-    #Birds as obstacles in the air
+    gameDisplay.blit(cloud_img, (cloud_x, cloud_y))
 
-    #bird_img=pygame.image.load(birds[index])
+    cloud_x -= 1
 
-    gameDisplay.blit(bird_img,(bird_x,bird_y))
+    # Birds as obstacles in the air
 
-    bird_x-=speed
+    # bird_img=pygame.image.load(birds[index])
 
-    your_score("Your score is ",score,30)
+    gameDisplay.blit(bird_img, (bird_x, bird_y))
 
-    #Ensuring that the tree doesn't come beneath the bird
+    bird_x -= speed
 
-    if bird_x>=start_x+80 and bird_x-speed<=start_x:
-        bird_x+=280
+    your_score("Your score is ", score, 30)
 
-    #Checking whether the obstacle crossed sonic
+    # Ensuring that the tree doesn't come beneath the bird
 
-    #Comparing X and Y coordinates of sonic with that of the obstacle
-   
-    if start_x<=x+65 and start_x-speed>=x:
-        
+    if bird_x >= start_x + 80 and bird_x - speed <= start_x:
+        bird_x += 280
 
-        #Checking whether sonic and the obstacle has the same y co-ordinate (Crashed!!!)
-        
-        if start_y==y:
-           pygame.mixer.music.load('../assets/music/crash.wav')
-           pygame.mixer.music.play(-1)
-           message_display("GAME OVER")
-           display("Your score is "+str(score))
-           break
-    #Checking whether X and Y coordinate of the bird and sonic are the same
+    # Checking whether the obstacle crossed sonic
 
-    if bird_x<=x+45:
+    # Comparing X and Y coordinates of sonic with that of the obstacle
 
-        #Checking whether sonic and the bird has the same Y co-ordinate
+    if start_x <= x + 65 and start_x - speed >= x:
 
-         if bird_y-4==y:
-           pygame.mixer.music.load('../assets/music/crash.wav')
-           pygame.mixer.music.play(1)   
-           message_display("GAME OVER")
-           display("Your score is "+str(score))
-           break
+        # Checking whether sonic and the obstacle has the same y co-ordinate (Crashed!!!)
 
-    #Checking whether the tree obstacles crossed the left most point    
-    
-    if start_x<=-40:
-        random_tree=random.randint(0,4)
-        
-        tree_obstacles=pygame.image.load(images[random_tree])
+        if start_y == y:
+            pygame.mixer.music.load(os.path.join(MUSIC_PATH, 'crash.wav'))
+            pygame.mixer.music.play(-1)
+            message_display("GAME OVER")
+            display("Your score is " + str(score))
+            break
+    # Checking whether X and Y coordinate of the bird and sonic are the same
 
-        
-        if random_tree==3:
-           gameDisplay.blit(tree_obstacles,(start_x,start_y+52))
+    if bird_x <= x + 45:
 
-        elif random_tree==4:
-             gameDisplay.blit(tree_obstacles,(start_x,start_y+20))
+        # Checking whether sonic and the bird has the same Y co-ordinate
 
-        else:               
-             gameDisplay.blit(tree_obstacles,(start_x,start_y))
+        if bird_y - 4 == y:
+            pygame.mixer.music.load(os.path.join(MUSIC_PATH, 'crash.wav'))
+            pygame.mixer.music.play(1)
+            message_display("GAME OVER")
+            display("Your score is " + str(score))
+            break
 
-        
+    # Checking whether the tree obstacles crossed the left most point
 
-        #setting the co-ordinates of tree obstalces to initial values             
-        
-        start_x=720
-        #height=random.randint(70,80)
-        start_y=396
+    if start_x <= -40:
+        random_tree = random.randint(0, 4)
+
+        tree_obstacles = pygame.image.load(images[random_tree])
+
+        if random_tree == 3:
+            gameDisplay.blit(tree_obstacles, (start_x, start_y + 52))
+
+        elif random_tree == 4:
+            gameDisplay.blit(tree_obstacles, (start_x, start_y + 20))
+
+        else:
+            gameDisplay.blit(tree_obstacles, (start_x, start_y))
+
+        # setting the co-ordinates of tree obstalces to initial values
+
+        start_x = 720
+        # height=random.randint(70,80)
+        start_y = 396
 
         '''red+=30
         green+=30
@@ -530,73 +461,57 @@ while not gameExit:
         if blue>=255:
             blue=125'''
 
-
-        
-        if speed>=20:
-            speed=23.5
+        if speed >= 20:
+            speed = 23.5
 
         else:
-            speed+=1
+            speed += 1
 
-        key_up=False
+        key_up = False
 
-        key_space=False
-            
-        pygame.mixer.music.load('../assets/music/gamePlay.mp3')
-        pygame.mixer.music.play(-1,i)
+        key_space = False
 
-    #Checking whether the cloud crossed the leftmost point        
+        pygame.mixer.music.load(os.path.join(MUSIC_PATH, 'gamePlay.mp3'))
+        pygame.mixer.music.play(-1, i)
 
+    # Checking whether the cloud crossed the leftmost point
 
-    if cloud_x<=-40:
+    if cloud_x <= -40:
+        random_cloud = random.randint(0, 2)
 
-        random_cloud=random.randint(0,2)
+        cloud_img = pygame.image.load(clouds[random_cloud])
 
-        cloud_img=pygame.image.load(clouds[random_cloud])
+        gameDisplay.blit(cloud_img, (cloud_x, cloud_y))
 
-        gameDisplay.blit(cloud_img,(cloud_x,cloud_y))
+        # Resetting cloud co-ordinates
 
-        #Resetting cloud co-ordinates             
+        cloud_x = 880
+        cloud_y = 200
 
-        cloud_x=880
-        cloud_y=200
+    if bird_x <= 0:
 
-
-    if bird_x<=0:
-
-        if index==0:
-            index=1
+        if index == 0:
+            index = 1
         else:
-            index=0
+            index = 0
 
-        bird_img=pygame.image.load(birds[index])    
-                  
-        gameDisplay.blit(bird_img,(bird_x,bird_y))
+        bird_img = pygame.image.load(birds[index])
 
+        gameDisplay.blit(bird_img, (bird_x, bird_y))
 
-                                                         
-        bird_x=920+(start_x-speed+40)
-        bird_y=320
-        
-        if speed>=20:
-            speed=23.5
+        bird_x = 920 + (start_x - speed + 40)
+        bird_y = 320
+
+        if speed >= 20:
+            speed = 23.5
 
         else:
-            speed+=1
-
-        
-    
+            speed += 1
 
     pygame.display.update()
     clock.tick(60)
 
-
 pygame.display.update()
-
-    
 
 pygame.quit()
 sys.exit()
- 
- 
- 
