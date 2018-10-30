@@ -54,7 +54,6 @@ gameExit = False
 
 # Images
 
-
 # Tree obstacles
 
 images = [os.path.join(IMAGE_PATH, 'tree1.jpeg'), os.path.join(IMAGE_PATH, 'tree2.jpeg'), os.path.join(IMAGE_PATH, 'tree3.jpeg'), os.path.join(IMAGE_PATH, 'shrub1.jpeg'), os.path.join(IMAGE_PATH, 'shrub2.jpeg')]
@@ -79,14 +78,12 @@ def your_score(string, count=0, size=0):
     text = font.render(string + str(count), True, (200, 25, 0))
     gameDisplay.blit(text, (0, 0))
 
-
 def img1(x, y):
     gameDisplay.blit(Img1, (x, y))
 
 
 def img2(x, y):
     gameDisplay.blit(Img2, (x, y))
-
 
 x = (display_width * 0.050)
 y = (display_height * 0.66)
@@ -99,13 +96,11 @@ red = 90
 green = 185
 blue = 125
 
-
 # Main Menu
 
 def title_objects(text, font):
     textSurface = font.render(text, True, (255, 255, 255))
     return textSurface, textSurface.get_rect()
-
 
 def title(text):
     largeText = pygame.font.Font('freesansbold.ttf', 75)
@@ -115,11 +110,9 @@ def title(text):
 
     pygame.display.update()
 
-
 def play_now_objects(text, font):
     textSurface = font.render(text, True, (255, 255, 255))
     return textSurface, textSurface.get_rect()
-
 
 def play_now(text):
     largeText = pygame.font.Font('freesansbold.ttf', 40)
@@ -129,11 +122,9 @@ def play_now(text):
 
     pygame.display.update()
 
-
 def quit_text_objects(text, font):
     textSurface = font.render(text, True, (255, 255, 255))
     return textSurface, textSurface.get_rect()
-
 
 def quit_text(text):
     largeText = pygame.font.Font('freesansbold.ttf', 45)
@@ -142,7 +133,6 @@ def quit_text(text):
     gameDisplay.blit(TextSurf, TextRect)
 
     pygame.display.update()
-
 
 # Crashed Message Displaying Methods
 
@@ -159,13 +149,11 @@ def message_display(text):
 
     pygame.display.update()
 
-
 # Displaying the score
 
 def text_render(text, font):
     textSurface = font.render(text, True, (255, 0, 0))
     return textSurface, textSurface.get_rect()
-
 
 def display(text):
     largeText = pygame.font.Font('freesansbold.ttf', 45)
@@ -176,7 +164,6 @@ def display(text):
     pygame.display.update()
 
     time.sleep(3)
-
 
 score = 0
 speed = 3.5
@@ -251,6 +238,7 @@ while not user_click:
         j += 14
 
         k += 20
+	
 pygame.mixer.music.stop()
 
 random_tree = random.randint(0, 4)
@@ -462,7 +450,7 @@ while not gameExit:
             blue=125'''
 
         if speed >= 20:
-            speed = 23.5
+            speed = 24
 
         else:
             speed += 1
@@ -503,7 +491,7 @@ while not gameExit:
         bird_y = 320
 
         if speed >= 20:
-            speed = 23.5
+            speed = 24
 
         else:
             speed += 1
